@@ -1,0 +1,23 @@
+@if ($message = \Illuminate\Support\Facades\Session::get('success'))
+    <div class="alert alert-success">
+        <p>{{ $message }}</p>
+    </div>
+@endif
+@if($errors->any())
+    @foreach($errors->all() as $error)
+        <div style="color: white;" class="alert bg-danger">
+            <strong>{{ $error }}</strong>
+        </div>
+    @endforeach
+@endif
+
+@if (count($errors) > 0)
+    <div class="alert alert-danger">
+        <strong>Whoops!</strong> There were some problems with your input.<br><br>
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
